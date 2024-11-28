@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -57.6, "left": 148.84, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -166.4,
+      "left": 303.2,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -84,
+      "left": 49.8,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-relay-module", "id": "tiny1", "top": 96.2, "left": 374.4, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 75.6,
+      "left": 544.2,
+      "rotate": 90,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 124,
+      "left": 544.2,
+      "rotate": 90,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 110.2, "left": 551.24, "rotate": 90, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 181.2, "left": 583.8, "attrs": {} },
+    { "type": "chip-mq2", "id": "chip1", "top": 221.82, "left": 292.8, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 300.6,
+      "left": 266.8,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-logo", "id": "logo1", "top": -96, "left": 144, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "vcc1:VCC", "tiny1:COM", "red", [ "v0" ] ],
+    [ "led1:A", "tiny1:NC", "limegreen", [ "v10.84", "h-51.64" ] ],
+    [ "led2:A", "tiny1:NO", "#8f4814", [ "h-1.74", "v-11.31" ] ],
+    [ "gnd1:GND", "led2:C", "black", [ "v-14.17", "h-53.31" ] ],
+    [ "led1:C", "gnd1:GND", "black", [ "h0.32", "v-13.15", "h47.13" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-38.4", "v297.7", "h-105.6" ] ],
+    [ "bz1:2", "esp:25", "orange", [ "v0" ] ],
+    [ "bz1:1", "esp:GND.1", "black", [ "v0" ] ],
+    [ "lcd1:SDA", "esp:21", "blue", [ "h-19.2", "v134.6" ] ],
+    [ "lcd1:SCL", "esp:22", "white", [ "h-9.6", "v105.9" ] ],
+    [ "tiny1:GND", "esp:GND.2", "black", [ "h-67.2", "v-144.4" ] ],
+    [ "tiny1:VCC", "esp:3V3", "red", [ "h-105.6", "v57.6", "h-134.4", "v-201.6" ] ],
+    [ "esp:5V", "chip1:VCC", "red", [ "h0.15", "v86.4" ] ],
+    [ "chip1:GND", "esp:GND.1", "black", [ "h-192", "v-144" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h-192", "v-76.4" ] ],
+    [ "ldr1:VCC", "esp:5V", "red", [ "h0" ] ],
+    [ "esp:15", "chip1:AO", "cyan", [ "h28.8", "v144" ] ],
+    [ "esp:4", "ldr1:AO", "limegreen", [ "h9.6", "v230.4" ] ],
+    [ "tiny1:IN", "esp:0", "yellow", [ "h-76.8", "v-38.6" ] ]
+  ],
+  "dependencies": {}
+}
