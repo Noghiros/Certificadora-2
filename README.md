@@ -2,9 +2,10 @@
 
 ### Contextualização
 
-O projeto visa desenvolver um detector de incêndio utilizando
-microcontroladores ESP32, Chip MQ2 (para detectar a presença de gases e/ou fumaça) e
-Sensor de Chama KY-026.
+O projeto visou desenvolver um detector de incêndio utilizando
+microcontroladores ESP32, Sensores MQ2 e KY-026.
+A fim de identificar a presença de gases inflamáveis, fumaça e  alterações luminosas que podem indicar a presença de fogo e até mesmo prever futuros incêndios.
+
 
 ### Componentes Principais
 
